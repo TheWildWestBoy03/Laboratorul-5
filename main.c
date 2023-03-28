@@ -23,6 +23,7 @@ void readingData(int **numbers, int *numberOfElements){
 }
 int main()
 {
+    /*
 
     char *paranthesis = NULL;
     int *visited, itHasUnpaired = 0;
@@ -52,7 +53,7 @@ int main()
         printf("It doesn't have any unpaired paranthesis!");
     }
 
-/*
+
     Queue *queue;
     int numberOfElements = 6;
     queue = createQueue();
@@ -81,22 +82,34 @@ int main()
         printf("%d ", deQueue(queue));
     }
 
+  */
 
-    /*
     Node *stackTop = NULL;
-    int *numberSir = NULL, numberOfElem, maximum = 0, numberOfHigh = 0;
+    int *numberSir = NULL, numberOfElem, maximum = 0, numberOfHigh = 0, numberOfHighMax = 0;
     Data currentNumber;
     readingData(&numberSir, &numberOfElem);
+    /*
     for(int i=0; i<numberOfElem; i++){
-        push(&top, numberSir[i]);
-        current = top -> val;
-        if(current >= maximum){
-            maximum = current;
+        currentNumber = numberSir[i];
+        if(currentNumber >= maximum){
+            push(&top, currentNumber, 0);
+            maximum = currentNumber;
             numberOfHigh ++;
         }
-        else {
-
+        else
+        {
+            maximum = 0;
+            printf("%d \n", numberOfHighMax);
+            if(numberOfHighMax < numberOfHigh){
+                numberOfHighMax = numberOfHigh;
+            }
+            while(numberOfHigh > 0 && !isEmpty(top)){
+                numberOfHigh --;
+                pop(&top);
+            }
+        }
     }
-
+    printf("%d \n", numberOfHighMax);
+    */
     return 0;
 }
